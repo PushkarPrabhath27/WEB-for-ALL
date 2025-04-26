@@ -173,4 +173,4 @@ describe('Memory Aid Module', () => {
       expect(progress).toBeCloseTo(50, 5); // Within 5% of 50%
     });
   });
-}));
+});

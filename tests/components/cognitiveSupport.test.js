@@ -139,4 +139,4 @@ describe('CognitiveSupport Component', () => {
       }
     });
   });
-}));
+});

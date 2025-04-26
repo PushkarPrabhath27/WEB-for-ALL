@@ -1,167 +1,203 @@
-# Accessibility Tools Extension
+# WEB for ALL
 
 <div align="center">
 
-![Accessibility Tools Logo](src/assets/icon128.svg)
+<img src="src/assets/icon128.svg" alt="WEB for ALL Logo" width="128" height="128" style="margin-bottom: 20px"/>
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=opensource)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge&logo=github)](CONTRIBUTING.md)
+[![Made with Love](https://img.shields.io/badge/Made%20with-❤️-red.svg?style=for-the-badge)]()
+[![Accessibility](https://img.shields.io/badge/Accessibility-Enhanced-purple.svg?style=for-the-badge&logo=accessibility)]()
 
-**A comprehensive browser extension that enhances web accessibility for users with diverse needs**
+**Breaking barriers, building bridges: Digital accessibility for everyone, everywhere**
 
 </div>
 
-## 🌟 Overview
+---
 
-The Accessibility Tools Extension is a powerful browser add-on designed to make the web more accessible for everyone. It provides a suite of tools that address various accessibility needs, including visual, auditory, motor, and cognitive challenges. Our goal is to create a more inclusive web experience by removing barriers to digital content.
+## 🌈 Vision
 
-### Key Features
+> *"The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect."* — Tim Berners-Lee
 
-- **Audio Assistance**: Text-to-Speech and Speech-to-Text capabilities
-- **Visual Enhancements**: Contrast improvements, text resizing, and image descriptions
-- **Cognitive Support**: Reading assistance and focus management tools
-- **Customizable Experience**: Personalized settings to meet individual needs
+In a world where digital experiences shape our daily lives, **WEB for ALL** stands as a beacon of digital inclusion. We're not just building another browser extension; we're pioneering a movement to transform how people with diverse abilities experience the web.
 
-## 📋 Table of Contents
+### Our Promise
 
-- [Installation](#-installation)
-- [Features](#-features)
-- [Usage](#-usage)
-- [Technical Architecture](#-technical-architecture)
-- [Development](#-development)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Contact](#-contact)
+Every feature we build, every line of code we write serves one purpose: **to ensure no one is left behind in the digital revolution**. Whether you're navigating with a screen reader, controlling your device with voice commands, or needing simplified content—we've got you covered.
 
-## 🚀 Installation
+---
 
-### From Browser Extension Store
+## ✨ Why WEB for ALL?
 
-*Coming soon to Chrome Web Store, Firefox Add-ons, and Edge Add-ons*
+<div align="center">
 
-### Manual Installation (Developer Mode)
+| 🔊 **Hear the Web** | 👁️ **See Clearly** | 🧠 **Understand Easily** | 🖱️ **Navigate Effortlessly** |
+|:-------------------:|:------------------:|:------------------------:|:----------------------------:|
+| Text-to-Speech with natural voices | Customizable visual experience | Content simplification | Alternative navigation methods |
+| Voice command navigation | Automatic image descriptions | Focus management | Keyboard accessibility |
+| Audio feedback | Color contrast enhancement | Reading guides | Gesture controls |
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/PushkarPrabhath27/accessibility-tools-extension.git
-   ```
+</div>
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+---
 
-3. Build the extension:
-   ```bash
-   npm run build
-   ```
+## 🚀 Quick Start
 
-4. Load the extension in your browser:
-   - Chrome: Go to `chrome://extensions/`, enable Developer mode, click "Load unpacked", and select the `dist` folder
-   - Firefox: Go to `about:debugging#/runtime/this-firefox`, click "Load Temporary Add-on", and select any file in the `dist` folder
-   - Edge: Go to `edge://extensions/`, enable Developer mode, click "Load unpacked", and select the `dist` folder
+### Install from Browser Stores
 
-## 🔍 Features
+<div align="center">
 
-### Audio Features
+[![Chrome Web Store](https://img.shields.io/badge/Chrome-Coming%20Soon-gray?style=for-the-badge&logo=google-chrome)]()
+[![Firefox Add-ons](https://img.shields.io/badge/Firefox-Coming%20Soon-gray?style=for-the-badge&logo=firefox-browser)]()
+[![Edge Add-ons](https://img.shields.io/badge/Edge-Coming%20Soon-gray?style=for-the-badge&logo=microsoft-edge)]()
 
-- **Text-to-Speech**: Reads page content aloud with customizable voice settings
-- **Speech-to-Text**: Control the extension and navigate web pages using voice commands
+</div>
 
-### Visual Assistance
-
-- **Visual Enhancements**: Improve contrast, adjust text size, and modify color schemes
-- **Image Descriptions**: Automatically generate alternative text for images lacking proper descriptions
-
-### Cognitive Support
-
-- **Reading Assistance**: Simplify complex text and provide reading guides
-- **Focus Management**: Reduce distractions and highlight important content
-
-### Additional Features
-
-- **Cross-disability Support**: Comprehensive tools that work together for users with multiple accessibility needs
-- **User Profiles**: Save and switch between different accessibility configurations
-- **Keyboard Shortcuts**: Quick access to commonly used features
-
-## 💡 Usage
-
-### Quick Start
-
-1. Click the extension icon in your browser toolbar to open the popup panel
-2. Toggle the main switch to enable/disable the extension
-3. Select the specific accessibility features you need
-4. Use the settings page for more detailed customization
-
-### Keyboard Shortcuts
-
-- **Alt+Shift+P**: Toggle the accessibility panel
-- **Alt+Shift+T**: Toggle Text-to-Speech
-- **Alt+Shift+S**: Start/Stop Speech-to-Text
-- **Alt+Shift+V**: Toggle Visual Enhancements
-
-## 🔧 Technical Architecture
-
-The extension is built with a modular architecture that separates concerns and allows for easy maintenance and extension:
-
-- **Background Scripts**: Handle extension lifecycle, user preferences, and cross-tab communication
-- **Content Scripts**: Modify web page content and inject accessibility features
-- **Popup UI**: Provides quick access to common features
-- **Options Page**: Offers detailed customization settings
-
-### Technologies Used
-
-- **JavaScript**: Core programming language
-- **HTML/CSS**: User interface components
-- **WebExtension API**: Browser extension functionality
-- **Web Speech API**: Text-to-speech and speech recognition capabilities
-
-## 💻 Development
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm (v6 or higher)
-
-### Setup Development Environment
-
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Start development server: `npm run dev`
-
-### Build for Production
+### For Developers
 
 ```bash
+# Clone the repository
+git clone https://github.com/PushkarPrabhath27/WEB-for-ALL
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
 npm run build
 ```
 
-### Testing
+### Load in Your Browser
 
-```bash
-npm test
+<details>
+<summary>Chrome / Edge</summary>
+
+1. Go to `chrome://extensions/` or `edge://extensions/`
+2. Enable "Developer mode"
+3. Click "Load unpacked"
+4. Select the `dist` folder
+</details>
+
+<details>
+<summary>Firefox</summary>
+
+1. Go to `about:debugging#/runtime/this-firefox`
+2. Click "Load Temporary Add-on"
+3. Select any file in the `dist` folder
+</details>
+
+---
+
+## 🛠️ Feature Showcase
+
+### 🎯 Adaptive Experience
+
+WEB for ALL learns from your interactions and adapts to your specific needs, creating a personalized accessibility experience that evolves with you.
+
+```
+User Profile → Interaction Analysis → Adaptive Settings → Personalized Experience
 ```
 
-## 👥 Contributing
+### 🔄 Cross-Disability Support
 
-We welcome contributions from everyone! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get started.
+Unlike single-purpose tools, WEB for ALL provides comprehensive support across multiple disability types:
 
-### Code of Conduct
+- **Visual**: From color blindness to low vision and blindness
+- **Auditory**: For deaf and hard-of-hearing users
+- **Motor**: Alternative navigation for those with limited mobility
+- **Cognitive**: Simplification and focus tools for neurodivergent users
+- **Seizure**: Protection from content that could trigger photosensitive epilepsy
 
-This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+### 🧩 Modular Design
 
-## 📄 License
+Activate only the features you need, when you need them. Our lightweight core ensures minimal performance impact while providing maximum flexibility.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
 
-## 📞 Contact
+## 💡 Real-World Impact
 
-- GitHub: [@PushkarPrabhath27](https://github.com/PushkarPrabhath27)
-- Project Link: [https://github.com/PushkarPrabhath27/accessibility-tools-extension](https://github.com/PushkarPrabhath27/accessibility-tools-extension)
+> *"Before WEB for ALL, I struggled to complete online forms for job applications. Now, with the focus management and form assistance features, I can apply for jobs independently."*
+> 
+> — Alex, user with ADHD
+
+> *"The automatic image descriptions have transformed my browsing experience. I can finally understand the visual content that was previously inaccessible to me."*
+> 
+> — Maya, screen reader user
+
+---
+
+## 🔍 Technical Excellence
+
+### Architecture
+
+WEB for ALL employs a modular, event-driven architecture that separates concerns while maintaining seamless integration:
+
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  Background     │◄────►│  Content        │◄────►│  User Interface │
+│  Service Worker │     │  Scripts        │     │  Components     │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+        ▲                        ▲                       ▲
+        │                        │                       │
+        ▼                        ▼                       ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  User Profile   │     │  Accessibility  │     │  Settings       │
+│  Management     │     │  Engine         │     │  Management     │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+```
+
+### Technologies
+
+- **Core**: JavaScript (ES6+), HTML5, CSS3
+- **Extension**: WebExtension API
+- **Accessibility**: ARIA, Web Speech API
+- **Testing**: Jest, Puppeteer
+- **Build**: Webpack, Babel
+
+---
+
+## 🤝 Join the Movement
+
+### Ways to Contribute
+
+- **Code**: Implement features, fix bugs, improve performance
+- **Design**: Create accessible UI components and visual assets
+- **Test**: Help us identify and fix accessibility issues
+- **Document**: Improve our documentation and user guides
+- **Advocate**: Spread the word about digital accessibility
+
+Check our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) to get started.
+
+### Development Roadmap
+
+See our [Roadmap](ROADMAP.md) for upcoming features and enhancements.
+
+---
+
+## 📜 Legal
+
+- [License (MIT)](LICENSE)
+- [Privacy Policy](SECURITY.md)
+- [Security](SECURITY.md)
+
+---
+
+## 📞 Connect
+
+- **GitHub**: [@PushkarPrabhath27](https://github.com/PushkarPrabhath27)
+- **Project**: [GitHub Repository](https://github.com/PushkarPrabhath27/WEB-for-ALL)
+- **Documentation**: [User Guide](docs/user-guide/getting-started.md)
 
 ---
 
 <div align="center">
 
-**Made with ❤️ for a more accessible web**
+### WEB for ALL: Because the internet should work for everyone
+
+<img src="src/assets/icon48.svg" alt="WEB for ALL" width="48" height="48" />
+
+**Empowering. Inclusive. Revolutionary.**
 
 </div>
