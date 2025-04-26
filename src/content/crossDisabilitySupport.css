@@ -1,0 +1,106 @@
+/**
+ * Styles for Cross-Disability Support Features
+ */
+
+/* Gesture feedback indicator */
+.gesture-feedback {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(66, 133, 244, 0.9);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 10000;
+  animation: gesture-feedback 1s ease-out forwards;
+}
+
+@keyframes gesture-feedback {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+/* Visual notification */
+.visual-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+  animation: notification-slide 0.3s ease-out;
+}
+
+@keyframes notification-slide {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: more) {
+  .gesture-feedback {
+    background: black;
+    border: 2px solid white;
+  }
+
+  .visual-notification {
+    background: black;
+    border: 2px solid white;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .gesture-feedback,
+  .visual-notification {
+    animation: none;
+  }
+
+  .gesture-feedback {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .visual-notification {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Focus indicators for keyboard navigation */
+.gesture-feedback:focus-visible,
+.visual-notification:focus-visible {
+  outline: 2px solid #4285f4;
+  outline-offset: 2px;
+}

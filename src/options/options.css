@@ -1,0 +1,557 @@
+/**
+ * Options Page Styles for Multimodal Accessibility Extension
+ * 
+ * These styles are designed with accessibility in mind:
+ * - High contrast for readability
+ * - Sufficient spacing for touch targets
+ * - Clear visual hierarchy
+ * - Focus indicators for keyboard navigation
+ */
+
+:root {
+  --primary-color: #4285F4;
+  --primary-dark: #3367D6;
+  --text-color: #202124;
+  --text-light: #5F6368;
+  --background-color: #FFFFFF;
+  --background-secondary: #F8F9FA;
+  --border-color: #DADCE0;
+  --success-color: #0F9D58;
+  --warning-color: #F4B400;
+  --error-color: #DB4437;
+  --focus-color: #4285F4;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --border-radius: 8px;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: 0;
+  margin: 0;
+}
+
+/* Main Container */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.options-header {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+}
+
+.options-header h1 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.description {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* Content Layout */
+.options-content {
+  display: flex;
+  flex: 1;
+  background-color: var(--background-color);
+}
+
+/* Navigation Sidebar */
+.options-nav {
+  width: 250px;
+  background-color: var(--background-secondary);
+  border-right: 1px solid var(--border-color);
+  padding: var(--spacing-lg) 0;
+}
+
+.options-nav ul {
+  list-style: none;
+}
+
+.options-nav a {
+  display: block;
+  padding: var(--spacing-md) var(--spacing-xl);
+  color: var(--text-color);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.options-nav a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.options-nav a.active {
+  color: var(--primary-color);
+  border-left-color: var(--primary-color);
+  background-color: rgba(66, 133, 244, 0.1);
+  font-weight: 500;
+}
+
+.options-nav a:focus {
+  outline: 2px solid var(--focus-color);
+  outline-offset: -2px;
+}
+
+/* Options Panels */
+.options-panels {
+  flex: 1;
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+}
+
+.options-panel {
+  display: none;
+  animation: fadeIn 0.3s;
+}
+
+.options-panel.active {
+  display: block;
+}
+
+.options-panel h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--primary-dark);
+}
+
+/* Settings Groups */
+.settings-group {
+  margin-bottom: var(--spacing-xl);
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: var(--spacing-lg);
+}
+
+.settings-group h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-color);
+}
+
+/* Setting Items */
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-info {
+  flex: 1;
+  padding-right: var(--spacing-lg);
+}
+
+.setting-info label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+}
+
+.setting-description {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: var(--spacing-xs);
+}
+
+.setting-control {
+  min-width: 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Form Controls */
+.toggle-input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 40px;
+  height: 20px;
+  background-color: var(--border-color);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-input:checked {
+  background-color: var(--primary-color);
+}
+
+.toggle-input:before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  transition: transform 0.3s;
+}
+
+.toggle-input:checked:before {
+  transform: translateX(20px);
+}
+
+.toggle-input:focus {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.toggle-label {
+  cursor: pointer;
+}
+
+.select-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: white;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.select-input:focus {
+  outline: 2px solid var(--focus-color);
+  border-color: var(--primary-color);
+}
+
+.select-input[multiple] {
+  height: 120px;
+}
+
+.range-control {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.range-input {
+  flex: 1;
+  height: 4px;
+  background-color: var(--border-color);
+  outline: none;
+  -webkit-appearance: none;
+  margin-right: var(--spacing-md);
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.range-input:focus {
+  outline: none;
+}
+
+.range-input:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
+}
+
+.range-value {
+  min-width: 40px;
+  text-align: right;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.text-input, .number-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.text-input:focus, .number-input:focus {
+  outline: 2px solid var(--focus-color);
+  border-color: var(--primary-color);
+}
+
+.textarea-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  color: var(--text-color);
+  min-height: 80px;
+  resize: vertical;
+}
+
+.textarea-input:focus {
+  outline: 2px solid var(--focus-color);
+  border-color: var(--primary-color);
+}
+
+.button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: var(--primary-dark);
+}
+
+.button:focus {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.button-warning {
+  background-color: var(--error-color);
+}
+
+.button-warning:hover {
+  background-color: #C53929;
+}
+
+/* Color Picker Container */
+.color-picker-container {
+  flex-direction: column;
+}
+
+.color-pickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.color-picker {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.color-picker label {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+/* Keyboard Shortcuts */
+.shortcut-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.shortcut-item:last-child {
+  border-bottom: none;
+}
+
+.shortcut-info {
+  flex: 1;
+}
+
+.shortcut-name {
+  font-weight: 500;
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.shortcut-description {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.shortcut-keys {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+kbd {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 12px;
+  font-family: monospace;
+  color: var(--text-color);
+  background-color: #f1f3f4;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section */
+.about-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-logo {
+  margin-bottom: var(--spacing-lg);
+}
+
+.about-logo img {
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+}
+
+.version {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-lg);
+}
+
+.about-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Accessibility Enhancements */
+:focus {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #0000FF;
+    --primary-dark: #0000CC;
+    --text-color: #000000;
+    --text-light: #333333;
+    --background-color: #FFFFFF;
+    --border-color: #000000;
+  }
+  
+  .setting-item {
+    border-bottom: 2px solid var(--border-color);
+  }
+  
+  .options-nav {
+    border-right: 2px solid var(--border-color);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .options-panel {
+    animation: none;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .options-content {
+    flex-direction: column;
+  }
+  
+  .options-nav {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .options-nav ul {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .options-nav a {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+  
+  .options-nav a.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--primary-color);
+  }
+  
+  .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .setting-control {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+    justify-content: flex-start;
+  }
+}

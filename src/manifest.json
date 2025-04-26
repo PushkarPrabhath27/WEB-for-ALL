@@ -1,0 +1,71 @@
+{
+  "manifest_version": 3,
+  "name": "Multimodal Accessibility Extension",
+  "version": "0.1.0",
+  "description": "A comprehensive browser extension that transforms web content in real-time to make it accessible to users with various disabilities",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon16.svg",
+      "48": "assets/icon48.svg",
+      "128": "assets/icon128.svg"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css", "crossDisabilitySupport.css", "videoControls.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "toggle-feature": {
+      "suggested_key": {
+        "default": "Alt+Shift+A"
+      },
+      "description": "Toggle the main accessibility features"
+    },
+    "start-tts": {
+      "suggested_key": {
+        "default": "Alt+Shift+T"
+      },
+      "description": "Start text-to-speech reading"
+    },
+    "start-stt": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Start speech-to-text recognition"
+    },
+    "toggle-panel": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Toggle the accessibility control panel"
+    }
+  }
+}

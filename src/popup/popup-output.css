@@ -1,0 +1,48 @@
+/* Output Messages Styles */
+.output-container {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  max-height: 120px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.output-message {
+  margin-bottom: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 13px;
+  color: var(--text-color);
+  background-color: rgba(33, 150, 243, 0.1);
+  border-radius: var(--border-radius-sm);
+  border-left: 3px solid var(--primary-color);
+  animation: fadeIn 0.3s ease-in-out;
+  transition: opacity 0.5s ease-out;
+}
+
+/* Message type styles */
+.output-message.success {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-left-color: var(--success-color);
+}
+
+.output-message.warning {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-left-color: var(--warning-color);
+}
+
+.output-message.error {
+  background-color: rgba(244, 67, 54, 0.1);
+  border-left-color: var(--error-color);
+}
+
+.output-message.fade-out {
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

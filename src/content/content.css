@@ -1,0 +1,675 @@
+/**
+ * Content Script Styles for Multimodal Accessibility Extension
+ * 
+ * These styles are injected into web pages to support accessibility features
+ * including visual enhancements, control panel, and highlighting.
+ */
+
+/* TTS Highlighting */
+.accessibility-extension-highlight {
+  background-color: rgba(66, 133, 244, 0.2) !important;
+  outline: 2px solid rgba(66, 133, 244, 0.8) !important;
+  border-radius: 2px !important;
+}
+
+/* Modern UI Card Styles */
+.accessibility-high-contrast {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+.accessibility-high-contrast a,
+.accessibility-high-contrast button,
+.accessibility-high-contrast input,
+.accessibility-high-contrast select,
+.accessibility-high-contrast textarea {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  border-color: #FFFF00 !important;
+}
+
+.accessibility-high-contrast a:hover,
+.accessibility-high-contrast button:hover {
+  background-color: #333333 !important;
+}
+
+.accessibility-high-contrast img,
+.accessibility-high-contrast video {
+  filter: brightness(1.2) contrast(1.2) !important;
+}
+
+/* Focus Highlighting */
+.accessibility-focus-highlight :focus {
+  outline: 3px solid #FF4500 !important;
+  outline-offset: 2px !important;
+}
+
+.accessibility-focus-highlight a:focus,
+.accessibility-focus-highlight button:focus,
+.accessibility-focus-highlight input:focus,
+.accessibility-focus-highlight select:focus,
+.accessibility-focus-highlight textarea:focus {
+  box-shadow: 0 0 0 3px #FF4500 !important;
+}
+
+/* Accessibility Adjustments for Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .accessibility-extension-panel,
+  .accessibility-extension-toggle-slider,
+  .accessibility-extension-toggle-slider:before {
+    transition: none !important;
+  }
+}
+
+/* Modern UI Card Styles */
+.accessibility-extension-panel.modern-ui {
+  background: #f8fafc;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(60,72,88,0.15), 0 1.5px 4px rgba(66,133,244,0.08);
+  padding: 0;
+  width: 340px;
+  min-width: 260px;
+  max-width: 95vw;
+  font-size: 15px;
+  color: #202124;
+  border: 1.5px solid #e3e8ee;
+  overflow: hidden;
+}
+
+.accessibility-panel-main-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.accessibility-panel-divider {
+  border: none;
+  border-top: 1px solid #e3e8ee;
+  margin: 12px 0 8px 0;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 1.5px 6px rgba(66,133,244,0.07);
+  margin-bottom: 0;
+  padding: 14px 16px 10px 16px;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(66,133,244,0.13);
+}
+
+.accessibility-panel-section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.accessibility-panel-section-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #e8f0fe;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.accessibility-panel-tooltip {
+  margin-left: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+.accessibility-panel-tooltip svg {
+  vertical-align: middle;
+}
+.accessibility-panel-tooltip:hover::after {
+  content: attr(title);
+  position: absolute;
+  background: #202124;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  left: 100%;
+  margin-left: 8px;
+  white-space: pre;
+  z-index: 10000;
+  box-shadow: 0 2px 8px rgba(60,72,88,0.18);
+}
+
+.accessibility-extension-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e8f0fe;
+  border-bottom: 1.5px solid #e3e8ee;
+  padding: 10px 18px 8px 14px;
+  border-radius: 18px 18px 0 0;
+  min-height: 48px;
+}
+
+.accessibility-extension-panel-title {
+  font-weight: 600;
+  font-size: 18px;
+  color: #202124;
+  margin: 0 0 0 2px;
+  flex: 1;
+}
+
+.accessibility-extension-panel-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.accessibility-extension-panel-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 6px;
+  color: #5F6368;
+  font-size: 14px;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.accessibility-extension-panel-button:hover {
+  background: #e3e8ee;
+}
+
+.accessibility-extension-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 10px 10px 14px 10px;
+}
+
+.accessibility-extension-panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 0;
+}
+
+.accessibility-extension-panel-section-title {
+  font-weight: 600;
+  margin: 0;
+  font-size: 15px;
+  color: #4285F4;
+}
+
+.accessibility-extension-panel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.accessibility-extension-panel-label {
+  font-size: 14px;
+  color: #202124;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+/* TTS Controls */
+.accessibility-extension-tts-controls {
+  display: flex;
+  gap: 7px;
+  margin-top: 7px;
+}
+
+.accessibility-extension-tts-button {
+  background: linear-gradient(90deg,#4285F4 60%,#34a853 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 0;
+  font-size: 13px;
+  cursor: pointer;
+  flex: 1;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(66,133,244,0.08);
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.accessibility-extension-tts-button:hover {
+  background: linear-gradient(90deg,#3367D6 60%,#0f9d58 100%);
+  box-shadow: 0 2px 8px rgba(66,133,244,0.13);
+}
+.accessibility-extension-tts-button:disabled {
+  background: #e3e8ee;
+  color: #5F6368;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Toggle Switch */
+.accessibility-extension-toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+.accessibility-extension-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.accessibility-extension-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #e3e8ee;
+  border-radius: 24px;
+  transition: background 0.2s;
+}
+.accessibility-extension-toggle input:checked + .accessibility-extension-toggle-slider {
+  background: linear-gradient(90deg,#4285F4 60%,#34a853 100%);
+}
+.accessibility-extension-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(66,133,244,0.10);
+}
+.accessibility-extension-toggle input:checked + .accessibility-extension-toggle-slider:before {
+  transform: translateX(20px);
+}
+
+/* Status/Feedback */
+.accessibility-extension-status-text {
+  font-size: 13px;
+  color: #5F6368;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+/* Shortcuts Section */
+.accessibility-extension-shortcuts {
+  background: #f1f3f4;
+  border-radius: 10px;
+  padding: 10px 14px 8px 14px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #444;
+}
+.accessibility-extension-shortcuts-list {
+  margin: 0 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+.accessibility-extension-shortcuts-list li {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .accessibility-extension-panel.modern-ui {
+    width: 98vw;
+    min-width: 0;
+    left: 1vw !important;
+    right: 1vw !important;
+    bottom: 10px !important;
+    padding: 0;
+  }
+  .accessibility-extension-panel-content {
+    padding: 6px 2px 10px 2px;
+  }
+  .card {
+    padding: 10px 6px 8px 6px;
+  }
+}
+
+/* ===================================== */
+/* == Floating Control Panel Styles == */
+/* ===================================== */
+
+.accessibility-extension-panel.modern-ui {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  max-height: 80vh;
+  background-color: var(--background-color, #ffffff);
+  border-radius: var(--border-radius, 8px);
+  box-shadow: var(--shadow-lg, 0 8px 16px rgba(0, 0, 0, 0.15));
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  color: var(--text-color, #212121);
+  border: 1px solid var(--border-color, #E0E0E0);
+  overflow: hidden; /* Clip content */
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.accessibility-extension-panel.modern-ui.minimized {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.accessibility-extension-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm, 8px) var(--spacing-md, 16px);
+  background-color: var(--primary-light, #BBDEFB);
+  color: var(--primary-dark, #1976D2);
+  cursor: grab;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border-color, #E0E0E0);
+}
+
+.accessibility-extension-panel.modern-ui.minimized .accessibility-extension-panel-header {
+  padding: 0;
+  background-color: transparent;
+  border-bottom: none;
+  cursor: pointer;
+  height: 100%;
+  justify-content: center;
+}
+
+.accessibility-extension-panel.modern-ui.minimized .accessibility-panel-title,
+.accessibility-extension-panel.modern-ui.minimized .accessibility-extension-panel-controls {
+  display: none;
+}
+
+.accessibility-extension-panel.modern-ui.minimized .header-icon {
+  display: block; /* Show only the icon when minimized */
+  stroke: var(--primary-color, #2196F3);
+  width: 28px;
+  height: 28px;
+}
+
+.accessibility-panel-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  margin-left: var(--spacing-sm, 8px);
+  flex-grow: 1;
+}
+
+.accessibility-extension-panel-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs, 4px);
+}
+
+.panel-control-button {
+  background: none;
+  border: none;
+  padding: var(--spacing-xs, 4px);
+  cursor: pointer;
+  color: var(--text-light, #757575);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.panel-control-button svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+.panel-control-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-color, #212121);
+}
+
+.panel-control-button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring, 0 0 0 3px rgba(33, 150, 243, 0.4));
+}
+
+.accessibility-extension-panel-content {
+  padding: var(--spacing-md, 16px);
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.accessibility-extension-panel.modern-ui.minimized .accessibility-extension-panel-content {
+  display: none;
+}
+
+.accessibility-panel-section {
+  margin-bottom: var(--spacing-md, 16px);
+}
+
+.accessibility-panel-section:last-child {
+  margin-bottom: 0;
+}
+
+.accessibility-panel-section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm, 8px);
+  margin-bottom: var(--spacing-sm, 8px);
+}
+
+.accessibility-panel-section-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--primary-dark, #1976D2);
+}
+
+.accessibility-panel-section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary-dark, #1976D2);
+  margin: 0;
+}
+
+.accessibility-panel-divider {
+  border: none;
+  border-top: 1px solid var(--border-color, #E0E0E0);
+  margin: var(--spacing-md, 16px) 0;
+}
+
+.accessibility-panel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-xs, 4px) 0;
+}
+
+.accessibility-panel-label {
+  font-size: 14px;
+  color: var(--text-color, #212121);
+  flex-grow: 1;
+  margin-right: var(--spacing-sm, 8px);
+}
+
+.feature-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm, 8px);
+}
+
+.tooltip-icon {
+  color: var(--text-light, #757575);
+  cursor: help;
+  display: inline-flex;
+  align-items: center;
+  margin-left: var(--spacing-xs, 4px);
+}
+
+.tooltip-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Re-use toggle switch styles from popup.css (assuming they are globally available or copied) */
+/* If not globally available, copy the .toggle-switch, .slider styles here */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px; /* Adjusted size */
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider.round {
+  border-radius: 10px; /* Match height */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px; /* Adjust size */
+  width: 12px;
+  left: 4px; /* Adjusted position */
+  bottom: 4px; /* Adjusted position */
+  background-color: white;
+  transition: .4s;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color, #2196F3);
+}
+
+input:focus + .slider {
+  box-shadow: var(--focus-ring, 0 0 0 3px rgba(33, 150, 243, 0.4));
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px); /* Adjust translation */
+}
+
+/* Small toggle variant */
+.toggle-switch.small {
+  width: 34px;
+  height: 18px;
+}
+
+.toggle-switch.small .slider.round {
+  border-radius: 9px;
+}
+
+.toggle-switch.small .slider:before {
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  bottom: 4px;
+}
+
+.toggle-switch.small input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+/* TTS/STT Controls */
+.accessibility-extension-tts-controls {
+  display: flex;
+  gap: var(--spacing-sm, 8px);
+  margin-top: var(--spacing-sm, 8px);
+}
+
+.accessibility-extension-tts-button {
+  flex: 1;
+  padding: var(--spacing-xs, 4px) var(--spacing-sm, 8px);
+  font-size: 13px;
+  background-color: var(--background-secondary, #F5F5F5);
+  border: 1px solid var(--border-color, #E0E0E0);
+  color: var(--text-color, #212121);
+  border-radius: var(--border-radius-sm, 4px);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.accessibility-extension-tts-button:hover:not(:disabled) {
+  background-color: var(--primary-light, #BBDEFB);
+  border-color: var(--primary-color, #2196F3);
+}
+
+.accessibility-extension-tts-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Shortcuts Section */
+.accessibility-extension-shortcuts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-light, #757575);
+}
+
+.accessibility-extension-shortcuts-list li {
+  margin-bottom: var(--spacing-xs, 4px);
+}
+
+.accessibility-extension-shortcuts-list b {
+  color: var(--text-color, #212121);
+  font-weight: 600;
+  margin-right: var(--spacing-xs, 4px);
+}
+
+/* Ensure variables are defined if not globally available */
+:root {
+  --primary-color: #2196F3;
+  --primary-dark: #1976D2;
+  --primary-light: #BBDEFB;
+  --accent-color: #FF4081;
+  --text-color: #212121;
+  --text-light: #757575;
+  --background-color: #FFFFFF;
+  --background-secondary: #F5F5F5;
+  --border-color: #E0E0E0;
+  --success-color: #4CAF50;
+  --warning-color: #FFC107;
+  --error-color: #F44336;
+  --focus-ring: 0 0 0 3px rgba(33, 150, 243, 0.4);
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --border-radius-sm: 4px;
+  --border-radius: 8px;
+  --border-radius-lg: 16px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s ease-in-out;
+}

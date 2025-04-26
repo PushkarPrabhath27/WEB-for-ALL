@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Extension Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <header class="options-header">
+      <h1>Accessibility Extension Settings</h1>
+      <p class="description">Customize the extension to meet your specific accessibility needs</p>
+    </header>
+
+    <main class="options-content">
+      <nav class="options-nav">
+        <ul>
+          <li><a href="#general" class="active">General</a></li>
+          <li><a href="#tts">Text-to-Speech</a></li>
+          <li><a href="#stt">Speech-to-Text</a></li>
+          <li><a href="#visual">Visual Assistance</a></li>
+          <li><a href="#cognitive">Cognitive Support</a></li>
+          <li><a href="#video">Video Accessibility</a></li>
+          <li><a href="#profiles">User Profiles</a></li>
+          <li><a href="#keyboard">Keyboard Shortcuts</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="options-panels">
+        <!-- General Settings -->
+        <section id="general" class="options-panel active">
+          <h2>General Settings</h2>
+          
+          <div class="settings-group">
+            <h3>Extension Behavior</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="auto-start">Auto-start on page load</label>
+                <p class="setting-description">Automatically activate accessibility features when a page loads</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="auto-start" class="toggle-input">
+                <label for="auto-start" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="show-panel">Show floating control panel</label>
+                <p class="setting-description">Display a control panel on web pages for quick access to features</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="show-panel" class="toggle-input" checked>
+                <label for="show-panel" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="site-specific">Enable site-specific settings</label>
+                <p class="setting-description">Remember different settings for different websites</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="site-specific" class="toggle-input">
+                <label for="site-specific" class="toggle-label"></label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Privacy</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="local-processing">Prioritize local processing</label>
+                <p class="setting-description">Process all data on your device when possible (recommended for privacy)</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="local-processing" class="toggle-input" checked>
+                <label for="local-processing" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="usage-stats">Share anonymous usage statistics</label>
+                <p class="setting-description">Help improve the extension by sharing anonymous usage data</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="usage-stats" class="toggle-input">
+                <label for="usage-stats" class="toggle-label"></label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Data Management</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="export-settings">Export Settings</label>
+                <p class="setting-description">Save your current settings to a file</p>
+              </div>
+              <div class="setting-control">
+                <button id="export-settings" class="button">Export</button>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="import-settings">Import Settings</label>
+                <p class="setting-description">Load settings from a file</p>
+              </div>
+              <div class="setting-control">
+                <button id="import-settings" class="button">Import</button>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="reset-settings">Reset to Defaults</label>
+                <p class="setting-description">Restore all settings to their default values</p>
+              </div>
+              <div class="setting-control">
+                <button id="reset-settings" class="button button-warning">Reset</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Text-to-Speech Settings -->
+        <section id="tts" class="options-panel">
+          <h2>Text-to-Speech Settings</h2>
+          
+          <div class="settings-group">
+            <h3>Voice Settings</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="voice-select">Voice</label>
+                <p class="setting-description">Select the voice to use for text-to-speech</p>
+              </div>
+              <div class="setting-control">
+                <select id="voice-select" class="select-input">
+                  <option value="default">Default Voice</option>
+                  <!-- Voice options will be populated by JavaScript -->
+                </select>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="rate-range">Speaking Rate</label>
+                <p class="setting-description">Adjust how fast the text is spoken</p>
+              </div>
+              <div class="setting-control range-control">
+                <input type="range" id="rate-range" min="0.5" max="2" step="0.1" value="1" class="range-input">
+                <span class="range-value">1.0</span>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="pitch-range">Pitch</label>
+                <p class="setting-description">Adjust the pitch of the speaking voice</p>
+              </div>
+              <div class="setting-control range-control">
+                <input type="range" id="pitch-range" min="0.5" max="2" step="0.1" value="1" class="range-input">
+                <span class="range-value">1.0</span>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="volume-range">Volume</label>
+                <p class="setting-description">Adjust the volume of the speaking voice</p>
+              </div>
+              <div class="setting-control range-control">
+                <input type="range" id="volume-range" min="0" max="1" step="0.1" value="1" class="range-input">
+                <span class="range-value">1.0</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Reading Behavior</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="auto-start-reading">Auto-start reading</label>
+                <p class="setting-description">Automatically start reading when a page loads</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="auto-start-reading" class="toggle-input">
+                <label for="auto-start-reading" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="highlight-text">Highlight text while reading</label>
+                <p class="setting-description">Visually highlight text as it's being read</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="highlight-text" class="toggle-input" checked>
+                <label for="highlight-text" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="skip-elements">Elements to skip</label>
+                <p class="setting-description">Select elements that should be skipped during reading</p>
+              </div>
+              <div class="setting-control">
+                <select id="skip-elements" class="select-input" multiple>
+                  <option value="nav">Navigation</option>
+                  <option value="aside">Sidebars</option>
+                  <option value="footer">Footers</option>
+                  <option value="ads">Advertisements</option>
+                  <option value="comments">Comments</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Advanced TTS Settings</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="pronunciation-dict">Custom Pronunciations</label>
+                <p class="setting-description">Add custom pronunciations for specific words or phrases</p>
+              </div>
+              <div class="setting-control">
+                <button id="pronunciation-dict" class="button">Edit Dictionary</button>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="language-detection">Automatic language detection</label>
+                <p class="setting-description">Detect and switch languages automatically for multilingual content</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="language-detection" class="toggle-input">
+                <label for="language-detection" class="toggle-label"></label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Speech-to-Text Settings -->
+        <section id="stt" class="options-panel">
+          <h2>Speech-to-Text Settings</h2>
+          
+          <div class="settings-group">
+            <h3>Recognition Settings</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="language-select">Recognition Language</label>
+                <p class="setting-description">Select the language for speech recognition</p>
+              </div>
+              <div class="setting-control">
+                <select id="language-select" class="select-input">
+                  <option value="en-US">English (US)</option>
+                  <option value="en-GB">English (UK)</option>
+                  <option value="es-ES">Spanish</option>
+                  <option value="fr-FR">French</option>
+                  <option value="de-DE">German</option>
+                  <option value="zh-CN">Chinese (Simplified)</option>
+                  <option value="ja-JP">Japanese</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="continuous-recognition">Continuous recognition</label>
+                <p class="setting-description">Keep listening for commands until manually stopped</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="continuous-recognition" class="toggle-input" checked>
+                <label for="continuous-recognition" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="recognition-timeout">Recognition timeout (seconds)</label>
+                <p class="setting-description">Automatically stop listening after this many seconds of silence</p>
+              </div>
+              <div class="setting-control">
+                <input type="number" id="recognition-timeout" class="number-input" min="5" max="300" value="30">
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Voice Commands</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="trigger-phrase">Trigger phrase</label>
+                <p class="setting-description">Optional phrase to activate voice commands (e.g., "Hey Assistant")</p>
+              </div>
+              <div class="setting-control">
+                <input type="text" id="trigger-phrase" class="text-input" placeholder="No trigger phrase">
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="command-feedback">Voice command feedback</label>
+                <p class="setting-description">Provide audio feedback when commands are recognized</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="command-feedback" class="toggle-input" checked>
+                <label for="command-feedback" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="custom-commands">Custom Commands</label>
+                <p class="setting-description">Create and manage custom voice commands</p>
+              </div>
+              <div class="setting-control">
+                <button id="custom-commands" class="button">Edit Commands</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Visual Assistance Settings -->
+        <section id="visual" class="options-panel">
+          <h2>Visual Assistance Settings</h2>
+          
+          <div class="settings-group">
+            <h3>High Contrast</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="high-contrast-mode">High contrast mode</label>
+                <p class="setting-description">Enable high contrast display for better visibility</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="high-contrast-mode" class="toggle-input">
+                <label for="high-contrast-mode" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="contrast-scheme">Contrast scheme</label>
+                <p class="setting-description">Select a color scheme for high contrast mode</p>
+              </div>
+              <div class="setting-control">
+                <select id="contrast-scheme" class="select-input">
+                  <option value="dark">White on Black</option>
+                  <option value="light">Black on White</option>
+                  <option value="yellow">Yellow on Black</option>
+                  <option value="blue">White on Blue</option>
+                  <option value="custom">Custom Colors</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="setting-item color-picker-container" id="custom-colors" style="display: none;">
+              <div class="setting-info">
+                <label>Custom Colors</label>
+                <p class="setting-description">Select custom text and background colors</p>
+              </div>
+              <div class="setting-control color-pickers">
+                <div class="color-picker">
+                  <label for="text-color">Text:</label>
+                  <input type="color" id="text-color" value="#ffffff">
+                </div>
+                <div class="color-picker">
+                  <label for="bg-color">Background:</label>
+                  <input type="color" id="bg-color" value="#000000">
+                </div>
+                <div class="color-picker">
+                  <label for="link-color">Links:</label>
+                  <input type="color" id="link-color" value="#ffff00">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Font Adjustments</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="font-size">Font size</label>
+                <p class="setting-description">Adjust the text size on web pages</p>
+              </div>
+              <div class="setting-control range-control">
+                <input type="range" id="font-size" min="100" max="200" step="10" value="100" class="range-input">
+                <span class="range-value">100%</span>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="font-family">Font family</label>
+                <p class="setting-description">Select a font that's easier to read</p>
+              </div>
+              <div class="setting-control">
+                <select id="font-family" class="select-input">
+                  <option value="default">Default</option>
+                  <option value="arial">Arial</option>
+                  <option value="verdana">Verdana</option>
+                  <option value="tahoma">Tahoma</option>
+                  <option value="opendyslexic">OpenDyslexic</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="line-spacing">Line spacing</label>
+                <p class="setting-description">Adjust the space between lines of text</p>
+              </div>
+              <div class="setting-control range-control">
+                <input type="range" id="line-spacing" min="1" max="3" step="0.1" value="1.5" class="range-input">
+                <span class="range-value">1.5</span>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="letter-spacing">Letter spacing</label>
+                <p class="setting-description">Adjust the space between letters</p>
+              </div>
+              <div class="setting-control range-control">
+                <input type="range" id="letter-spacing" min="0" max="5" step="0.5" value="0.5" class="range-input">
+                <span class="range-value">0.5px</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Image Description</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="image-descriptions">Generate image descriptions</label>
+                <p class="setting-description">Automatically generate descriptions for images without alt text</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="image-descriptions" class="toggle-input" checked>
+                <label for="image-descriptions" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="description-detail">Description detail level</label>
+                <p class="setting-description">Select how detailed image descriptions should be</p>
+              </div>
+              <div class="setting-control">
+                <select id="description-detail" class="select-input">
+                  <option value="basic">Basic (faster)</option>
+                  <option value="detailed" selected>Detailed</option>
+                  <option value="comprehensive">Comprehensive (slower)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cognitive Support Settings -->
+        <section id="cognitive" class="options-panel">
+          <h2>Cognitive Support Settings</h2>
+          
+          <div class="settings-group">
+            <h3>Reading Assistance</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="text-simplification">Text simplification</label>
+                <p class="setting-description">Simplify complex text for easier understanding</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="text-simplification" class="toggle-input">
+                <label for="text-simplification" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="simplification-level">Simplification level</label>
+                <p class="setting-description">Select how much to simplify text</p>
+              </div>
+              <div class="setting-control">
+                <select id="simplification-level" class="select-input">
+                  <option value="mild">Mild</option>
+                  <option value="moderate" selected>Moderate</option>
+                  <option value="strong">Strong</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="dictionary-lookup">Dictionary lookup</label>
+                <p class="setting-description">Enable quick dictionary lookups for unfamiliar words</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="dictionary-lookup" class="toggle-input" checked>
+                <label for="dictionary-lookup" class="toggle-label"></label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Focus Management</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="distraction-reduction">Distraction reduction</label>
+                <p class="setting-description">Hide non-essential page elements to reduce distractions</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="distraction-reduction" class="toggle-input">
+                <label for="distraction-reduction" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="reading-mask">Reading mask</label>
+                <p class="setting-description">Show a reading mask that highlights the current line</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="reading-mask" class="toggle-input">
+                <label for="reading-mask" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="focus-timeout">Focus session duration (minutes)</label>
+                <p class="setting-description">Set a timer for focused reading sessions</p>
+              </div>
+              <div class="setting-control">
+                <input type="number" id="focus-timeout" class="number-input" min="5" max="120" value="25">
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Memory Aids</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="auto-bookmarking">Automatic bookmarking</label>
+                <p class="setting-description">Automatically save your reading position on pages</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="auto-bookmarking" class="toggle-input" checked>
+                <label for="auto-bookmarking" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="note-taking">Enable note-taking</label>
+                <p class="setting-description">Add notes to web pages for later reference</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="note-taking" class="toggle-input">
+                <label for="note-taking" class="toggle-label"></label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Video Accessibility Settings -->
+        <section id="video" class="options-panel">
+          <h2>Video Accessibility Settings</h2>
+          
+          <div class="settings-group">
+            <h3>Caption Settings</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="auto-caption">Automatic captions</label>
+                <p class="setting-description">Generate captions for videos without them</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="auto-caption" class="toggle-input" checked>
+                <label for="auto-caption" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="caption-font-size">Caption font size</label>
+                <p class="setting-description">Adjust the size of video captions</p>
+              </div>
+              <div class="setting-control range-control">
+                <input type="range" id="caption-font-size" min="100" max="200" step="10" value="100" class="range-input">
+                <span class="range-value">100%</span>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="caption-background">Caption background</label>
+                <p class="setting-description">Add a background behind captions for better readability</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="caption-background" class="toggle-input" checked>
+                <label for="caption-background" class="toggle-label"></label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Video Controls</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="custom-video-controls">Custom video controls</label>
+                <p class="setting-description">Replace default video controls with accessible ones</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="custom-video-controls" class="toggle-input" checked>
+                <label for="custom-video-controls" class="toggle-label"></label>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="playback-rate">Default playback rate</label>
+                <p class="setting-description">Set the default speed for video playback</p>
+              </div>
+              <div class="setting-control range-control">
+                <input type="range" id="playback-rate" min="0.5" max="2" step="0.25" value="1" class="range-input">
+                <span class="range-value">1.0x</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Video Enhancement</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="video-brightness">Brightness adjustment</label>
+                <p class="setting-description">Adjust the brightness of videos</p>
+              </div>
+              <div class="setting-control range-control">
+                <input type="range" id="video-brightness" min="50" max="150" step="10" value="100" class="range-input">
+                <span class="range-value">100%</span>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="video-contrast">Contrast adjustment</label>
+                <p class="setting-description">Adjust the contrast of videos</p>
+              </div>
+              <div class="setting-control range-control">
+                <input type="range" id="video-contrast" min="50" max="150" step="10" value="100" class="range-input">
+                <span class="range-value">100%</span>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="reduce-motion">Reduce motion</label>
+                <p class="setting-description">Reduce motion in videos for users sensitive to movement</p>
+              </div>
+              <div class="setting-control">
+                <input type="checkbox" id="reduce-motion" class="toggle-input">
+                <label for="reduce-motion" class="toggle-label"></label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- User Profiles Settings -->
+        <section id="profiles" class="options-panel">
+          <h2>User Profiles</h2>
+          
+          <div class="settings-group">
+            <h3>Profile Management</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="active-profile">Active Profile</label>
+                <p class="setting-description">Select the active accessibility profile</p>
+              </div>
+              <div class="setting-control">
+                <select id="active-profile" class="select-input">
+                  <option value="default">Default Profile</option>
+                  <!-- Other profiles will be populated by JavaScript -->
+                </select>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="new-profile">Create New Profile</label>
+                <p class="setting-description">Create a new accessibility profile with custom settings</p>
+              </div>
+              <div class="setting-control">
+                <button id="new-profile" class="button">Create Profile</button>
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="delete-profile">Delete Profile</label>
+                <p class="setting-description">Delete the selected profile</p>
+              </div>
+              <div class="setting-control">
+                <button id="delete-profile" class="button button-warning">Delete</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Profile Settings</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="profile-name">Profile Name</label>
+                <p class="setting-description">Name for the current profile</p>
+              </div>
+              <div class="setting-control">
+                <input type="text" id="profile-name" class="text-input" value="Default Profile">
+              </div>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="profile-description">Description</label>
+                <p class="setting-description">Optional description for this profile</p>
+              </div>
+              <div class="setting-control">
+                <textarea id="profile-description" class="textarea-input" placeholder="Describe this profile..."></textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Keyboard Shortcuts Settings -->
+        <section id="keyboard" class="options-panel">
+          <h2>Keyboard Shortcuts</h2>
+          
+          <div class="settings-group">
+            <h3>Global Shortcuts</h3>
+            
+            <div class="shortcut-item">
+              <div class="shortcut-info">
+                <span class="shortcut-name">Toggle Extension</span>
+                <p class="shortcut-description">Enable or disable all accessibility features</p>
+              </div>
+              <div class="shortcut-keys">
+                <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd>
+              </div>
+            </div>
+            
+            <div class="shortcut-item">
+              <div class="shortcut-info">
+                <span class="shortcut-name">Start Text-to-Speech</span>
+                <p class="shortcut-description">Begin reading the page content</p>
+              </div>
+              <div class="shortcut-keys">
+                <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>
+              </div>
+            </div>
+            
+            <div class="shortcut-item">
+              <div class="shortcut-info">
+                <span class="shortcut-name">Start Speech Recognition</span>
+                <p class="shortcut-description">Begin listening for voice commands</p>
+              </div>
+              <div class="shortcut-keys">
+                <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>
+              </div>
+            </div>
+            
+            <div class="shortcut-item">
+              <div class="shortcut-info">
+                <span class="shortcut-name">Toggle Control Panel</span>
+                <p class="shortcut-description">Show or hide the floating control panel</p>
+              </div>
+              <div class="shortcut-keys">
+                <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>TTS Navigation Shortcuts</h3>
+            
+            <div class="shortcut-item">
+              <div class="shortcut-info">
+                <span class="shortcut-name">Pause/Resume Reading</span>
+                <p class="shortcut-description">Pause or resume the current reading</p>
+              </div>
+              <div class="shortcut-keys">
+                <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd>
+              </div>
+            </div>
+            
+            <div class="shortcut-item">
+              <div class="shortcut-info">
+                <span class="shortcut-name">Stop Reading</span>
+                <p class="shortcut-description">Stop the current reading</p>
+              </div>
+              <div class="shortcut-keys">
+                <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd>
+              </div>
+            </div>
+            
+            <div class="shortcut-item">
+              <div class="shortcut-info">
+                <span class="shortcut-name">Next Paragraph</span>
+                <p class="shortcut-description">Move to the next paragraph</p>
+              </div>
+              <div class="shortcut-keys">
+                <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>Down</kbd>
+              </div>
+            </div>
+            
+            <div class="shortcut-item">
+              <div class="shortcut-info">
+                <span class="shortcut-name">Previous Paragraph</span>
+                <p class="shortcut-description">Move to the previous paragraph</p>
+              </div>
+              <div class="shortcut-keys">
+                <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>Up</kbd>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-group">
+            <h3>Custom Shortcuts</h3>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <label for="custom-shortcuts">Manage Custom Shortcuts</label>
+                <p class="setting-description">Create and edit custom keyboard shortcuts</p>
+              </div>
+              <div class="setting-control">
+                <button id="custom-shortcuts" class="button">Edit Shortcuts</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="options-panel">
+          <h2>About</h2>
+          
+          <div class="about-content">
+            <div class="about-logo">
+              <img src="../assets/icon128.svg" alt="Accessibility Extension Logo" width="80" height="80">
+            </div>
+            
+            <h3>Multimodal Accessibility Extension</h3>
+            <p class="version">Version 0.1.0</p>
+            
+            <p class="about-description">
+              A comprehensive browser extension that transforms web content in real-time to make it accessible to users with various disabilities. The extension supports multiple accessibility needs including visual, auditory, motor, and cognitive disabilities.
+            </p>
+            
+            <h4>Core Principles</h4>
+            <ul class="principles-list">
+              <li><strong>Universal Design:</strong> Features that benefit users with various disabilities</li>
+              <li><strong>Local Processing:</strong> Client-side processing for privacy and performance</li>
+              <li><strong>Open Source:</strong> Free and open-source technologies</li>
+              <li><strong>Modularity:</strong> Components that can be enabled/disabled individually</li>
+              <li><strong>Performance:</strong> Minimal impact on browsing experience</li>
+              <li><strong>Standards Compliance:</strong> Following WCAG 2.1 Level AA guidelines</li>
+            </ul>
+            
+            <div class="about-links">
+              <a href="#" class="about-link" id="help-link">Help & Documentation</a>
+              <a href="#" class="about-link" id="feedback-link">Provide Feedback</a>
+              <a href="#" class="about-link" id="privacy-link">Privacy Policy</a>
+              <a href="#" class="about-link" id="license-link">License Information</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="options-footer">
+      <p>Multimodal Accessibility Extension &copy; 2023</p>
+    </footer>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

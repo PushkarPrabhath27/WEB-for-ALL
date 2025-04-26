@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reload Extension</title>
+  <script>
+    if (chrome && chrome.runtime) {
+      chrome.runtime.reload();
+    } else {
+      alert('This page must be opened in the context of a Chrome extension.');
+    }
+  </script>
+</head>
+<body>
+  <h1>Reloading Extension...</h1>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Extension</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="popup-output.css">
+</head>
+<body>
+  <div class="popup-container modern-ui">
+    <header class="popup-header">
+      <div class="header-content">
+        <svg class="header-icon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 15s1.5-2 4-2 4 2 4 2"></path><path d="M9 9h.01"></path><path d="M15 9h.01"></path></svg>
+        <h1>Accessibility Tools</h1>
+      </div>
+      <div class="main-toggle">
+        <label for="extension-toggle" class="toggle-label">Enable Extension</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="extension-toggle" checked>
+          <span class="slider round" aria-hidden="true"></span>
+        </label>
+      </div>
+    </header>
+
+    <main class="features-container" aria-label="Extension Features">
+      <section class="feature-group card" aria-labelledby="audio-features-heading">
+        <div class="feature-group-header">
+          <svg class="feature-icon" aria-hidden="true" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+          <h2 id="audio-features-heading">Audio Features</h2>
+        </div>
+        <div class="feature-item">
+          <label for="tts-toggle" class="feature-label">Text-to-Speech <span class="feature-desc">Read page content aloud</span></label>
+          <div class="feature-controls">
+            <button id="tts-start" class="action-button small" aria-label="Start Text-to-Speech">Start</button>
+            <label class="toggle-switch small">
+              <input type="checkbox" id="tts-toggle" checked>
+              <span class="slider round" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+        <div class="feature-item">
+          <label for="stt-toggle" class="feature-label">Speech-to-Text <span class="feature-desc">Control with voice commands</span></label>
+          <div class="feature-controls">
+            <button id="stt-start" class="action-button small" aria-label="Start Speech-to-Text">Start</button>
+            <label class="toggle-switch small">
+              <input type="checkbox" id="stt-toggle">
+              <span class="slider round" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-group card" aria-labelledby="visual-features-heading">
+         <div class="feature-group-header">
+          <svg class="feature-icon" aria-hidden="true" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          <h2 id="visual-features-heading">Visual Assistance</h2>
+        </div>
+        <div class="feature-item">
+          <label for="visual-toggle" class="feature-label">Visual Enhancements <span class="feature-desc">Improve contrast & readability</span></label>
+          <div class="feature-controls">
+            <label class="toggle-switch">
+              <input type="checkbox" id="visual-toggle" checked>
+              <span class="slider round" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+        <div class="feature-item">
+          <label for="image-toggle" class="feature-label">Image Descriptions <span class="feature-desc">Generate alt text for images</span></label>
+          <div class="feature-controls">
+            <label class="toggle-switch">
+              <input type="checkbox" id="image-toggle" checked>
+              <span class="slider round" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-group card" aria-labelledby="cognitive-features-heading">
+         <div class="feature-group-header">
+          <svg class="feature-icon" aria-hidden="true" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 7v13a2 2 0 0 0 2 2h14"></path><path d="M22 7V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"></path><path d="M16 3v4"></path><path d="M8 3v4"></path></svg>
+          <h2 id="cognitive-features-heading">Cognitive Support</h2>
+        </div>
+        <div class="feature-item">
+          <label for="reading-toggle" class="feature-label">Reading Assistance <span class="feature-desc">Simplify text & reading guides</span></label>
+          <div class="feature-controls">
+            <label class="toggle-switch">
+              <input type="checkbox" id="reading-toggle">
+              <span class="slider round" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+        <div class="feature-item">
+          <label for="focus-toggle" class="feature-label">Focus Management <span class="feature-desc">Reduce distractions & highlight</span></label>
+          <div class="feature-controls">
+            <label class="toggle-switch">
+              <input type="checkbox" id="focus-toggle">
+              <span class="slider round" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="popup-footer">
+      <button id="settings-button" class="settings-button" aria-label="Open Settings Page">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82V15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09a1.65 1.65 0 0 0 1.51-1z"></path></svg>
+        <span>Settings</span>
+      </button>
+      <div class="keyboard-shortcut-info" aria-label="Keyboard Shortcut Information">
+        <span>Toggle Panel: Alt+Shift+P</span>
+      </div>
+    </footer>
+
+    <div class="output-container" aria-label="Output Messages">
+      <h2>Output</h2>
+      <div id="output-messages" class="output-messages"></div>
+    </div>
+  </div>
+  <!-- Scripts will be injected by webpack -->
+</body>
+</html>
